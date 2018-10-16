@@ -132,11 +132,11 @@ class TimeFormatter(Formatter):
         elif self.unit == 'ms':
             s = '{:.3g}'.format(value * 1000)
         else:
-            if vmax - vmin > 3600:
+            if vmax > 3600:
                 s = '{:d}:{:02d}:{:02d}'.format(int(value / 3600.0),
                                                 int(np.mod(value / 60.0, 60)),
                                                 int(np.mod(value, 60)))
-            elif vmax - vmin > 60:
+            elif vmax > 60:
                 s = '{:d}:{:02d}'.format(int(value / 60.0),
                                          int(np.mod(value, 60)))
             else:
